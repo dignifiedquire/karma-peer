@@ -1,0 +1,31 @@
+{
+  "name": "karma-peer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "test": "karma start --single-run=true karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dignifiedquire/karma-peer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dignifiedquire/karma-peer/issues"
+  },
+  "homepage": "https://github.com/dignifiedquire/karma-peer#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^0.13.20",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-mocha": "^0.2.1",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "standard": "^6.0.4",
+    "webpack": "^1.12.13"
+  }
+}
