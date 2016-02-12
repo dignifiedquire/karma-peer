@@ -3,8 +3,17 @@
 
 const expect = require('chai').expect
 
-describe('peer', () => {
-  it('should work', () => {
-    expect(1 + 1).to.be.eql(2)
+const peer = window.peer
+
+describe('peer', function () {
+  this.timeout(50000)
+
+  it('should work', (done) => {
+    peer.on((id, msg) => {
+      console.log('got', id, msg)
+      expect(msg).to.be.eql('hello')
+      done()
+    })
+    peer.send('hello')
   })
 })

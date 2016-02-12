@@ -14,13 +14,25 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    customLaunchers: {
+      Chrome1: {
+        base: 'Chrome',
+        displayName: 'Chrome-1'
+      },
+      Chrome2: {
+        base: 'Chrome',
+        displayName: 'Chrome-2'
+      }
+    },
+    browsers: ['Chrome1', 'Chrome2'],
     singleRun: false,
     plugins: [
       'karma-mocha',
       'karma-chrome-launcher',
       'karma-webpack',
       require('./index')
-    ]
+    ],
+    peer: {
+    }
   })
 }
