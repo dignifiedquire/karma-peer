@@ -13,7 +13,7 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
-    autoWatch: true,
+    autoWatch: false,
     customLaunchers: {
       Chrome1: {
         base: 'Chrome',
@@ -27,12 +27,16 @@ module.exports = function (config) {
     browsers: ['Chrome1', 'Chrome2'],
     singleRun: false,
     plugins: [
-      'karma-mocha',
-      'karma-chrome-launcher',
-      'karma-webpack',
+      require('karma-mocha'),
+      require('karma-chrome-launcher'),
+      require('karma-webpack'),
       require('./index')
     ],
     peer: {
-    }
+    },
+    webpackMiddleware: {
+      noInfo: true
+    },
+    browserNoActivityTimeout: 50000
   })
 }
