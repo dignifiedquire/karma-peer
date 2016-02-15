@@ -5,7 +5,7 @@ node_js:
 
 addons:
   firefox:
-    - "latest"
+    "latest"
 
 before_script:
   - export DISPLAY=:99.0
