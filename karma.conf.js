@@ -1,4 +1,6 @@
 module.exports = function (config) {
+  var baseBrowser = process.env.TRAVIS ? 'Firefox' : 'Chrome'
+
   config.set({
     basePath: '',
     frameworks: ['mocha', 'peer'],
@@ -16,19 +18,21 @@ module.exports = function (config) {
     autoWatch: false,
     customLaunchers: {
       Chrome1: {
-        base: 'Chrome',
+        base: baseBrowser,
         displayName: 'Chrome-1'
       },
       Chrome2: {
-        base: 'Chrome',
+        base: baseBrowser,
         displayName: 'Chrome-2'
       }
     },
     browsers: ['Chrome1', 'Chrome2'],
     singleRun: false,
     plugins: [
+      // requiring these for easier debugging
       require('karma-mocha'),
       require('karma-chrome-launcher'),
+      require('karma-firefox-launcher'),
       require('karma-webpack'),
       require('./index')
     ],
