@@ -19,6 +19,15 @@ function plan (count, done) {
 
 describe('peer', function () {
   this.timeout(20000)
+  let id
+
+  before((done) => {
+    peer.id((_id) => {
+      id = _id
+      console.log('ID', id)
+      done()
+    })
+  })
 
   beforeEach((done) => {
     peer.ready(done)
@@ -29,6 +38,8 @@ describe('peer', function () {
   })
 
   it('sum', (done) => {
+    if (id > 1) return done()
+
     const finish = plan(2, done)
     const msgId = Math.random()
 
@@ -62,6 +73,8 @@ describe('peer', function () {
   })
 
   it('simple webrtc', (done) => {
+    if (id > 1) return done()
+
     console.log('starting webrtc')
     const finish = plan(3, done)
 
@@ -110,5 +123,19 @@ describe('peer', function () {
       expect(data).to.be.eql('hey peer2, how is it going?')
       finish()
     })
+  })
+
+  it('should spawn new browsers', (done) => {
+    if (id !== 0) return done()
+
+    console.log('Spawning browser')
+    peer.spawn('Chrome3')
+    done()
+  })
+
+  it('should execute test only in the new browser', (done) => {
+    if (id !== 2) done()
+
+    expect(1 + 1).to.be.eql(2)
   })
 })

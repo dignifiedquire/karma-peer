@@ -24,6 +24,10 @@ module.exports = function (config) {
       Chrome2: {
         base: baseBrowser,
         displayName: 'Chrome-2'
+      },
+      Chrome3: {
+        base: baseBrowser,
+        displayName: 'Chrome-3'
       }
     },
     browsers: ['Chrome1', 'Chrome2'],

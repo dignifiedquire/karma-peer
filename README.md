@@ -14,3 +14,5 @@ There is an object `peer` exposed on `window` which gives you the following
 * `peer.done`: This should be run after every test to clean up state.
 * `peer.send(msg)`: This is used to send a message to all other browsers. `msg` is an object.
 * `peer.socket`: The underlying socket.io socket.
+* `peer.spawn(name)`: Spawn a new browser with `name`
+* `peer.id(cb)`: Get the id of the current browser
